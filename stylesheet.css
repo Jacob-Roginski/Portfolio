@@ -234,12 +234,35 @@ html.dark-mode .toggle-icon-light {
   font-weight: 500;
 }
 
+.project-title-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
 .project-title {
   font-size: 40px;
   font-weight: 600;
   color: var(--accent-blue);
   line-height: 1.2;
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.arrow-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 20px;
+}
+
+.project-title-link:hover .project-title {
+  color: var(--accent-blue);
+}
+
+.project-title-link:hover .arrow-icon {
+  transform: translateX(4px);
 }
 
 .project-section-item {
@@ -260,25 +283,6 @@ html.dark-mode .toggle-icon-light {
   line-height: 1.6;
   color: var(--text-secondary);
   margin: 0;
-}
-
-.btn-learn-more {
-  display: inline-block;
-  text-decoration: underline;
-  color: var(--text-primary);
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.2s;
-  align-self: flex-start;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  margin-top: 12px;
-}
-
-.btn-learn-more:hover {
-  color: var(--accent-blue);
 }
 
 /* Other Projects */
