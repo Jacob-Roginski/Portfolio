@@ -254,9 +254,10 @@ html.dark-mode .toggle-icon-light {
 .arrow-icon {
   display: inline-block;
   transition: transform 0.3s ease;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
+  margin-left: 4px;
 }
 
 .project-title-link:hover .project-title {
