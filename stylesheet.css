@@ -1266,7 +1266,15 @@ html.dark-mode .toggle-icon-light {
   transition: all 0.3s ease;
 }
 
+html.dark-mode .doc-icon {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
 .resume-download:hover .doc-icon {
+  filter: brightness(0) saturate(100%) invert(41%) sepia(96%) saturate(649%) hue-rotate(202deg) brightness(99%) contrast(102%);
+}
+
+html.dark-mode .resume-download:hover .doc-icon {
   filter: brightness(0) saturate(100%) invert(41%) sepia(96%) saturate(649%) hue-rotate(202deg) brightness(99%) contrast(102%);
 }
 
