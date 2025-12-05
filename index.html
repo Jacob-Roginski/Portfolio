@@ -61,12 +61,13 @@
             <p>Product Management, UI/UX Design, Competitive Analysis, Communication, Wireframing, Figma</p>
           </div>
           
-          <a href="https://www.waggoner-financial.com" class="btn-learn-more">Learn More</a>
+          <a href="waggoner.html" class="btn-learn-more">Learn More</a>
         </div>
       </div>
     </section>
 
     <section class="other-projects">
+      <h2 class="other-projects-title">Featured Projects</h2>
       <div class="carousel-wrapper">
         <input type="radio" name="carousel" id="slide1" checked />
         <input type="radio" name="carousel" id="slide2" />
@@ -78,7 +79,7 @@
           <div class="carousel-slide">
             <div class="carousel-item" style="background: linear-gradient(135deg, #5D3A6B 0%, #3D1F4A 100%);">
               <div class="card-date-top">Fall 2025</div>
-              <div class="card-open-icon">⤴</div>
+              <a href="waggoner.html" class="card-open-icon">⤴</a>
               <div class="card-logo"><img src="asset/Waggoner Logo.png" alt="Waggoner Financial" class="logo-img" /></div>
               <div class="card-product-image"><img src="asset/Computer images/Cobra Computer.png" alt="Waggoner Prototype" class="product-img" /></div>
               <div class="card-product-name">Waggoner Financial</div>
@@ -139,6 +140,39 @@
           <label for="slide5" class="control-dot"></label>
         </div>
       </div>
+
+      <h2 class="other-projects-title">Other Projects</h2>
+      <div class="small-projects-grid">
+        <div class="small-project-card" style="background: linear-gradient(135deg, #5D3A6B 0%, #3D1F4A 100%);">
+          <div class="small-card-logo"><img src="asset/Waggoner Logo.png" alt="Waggoner Financial" class="small-logo-img" /></div>
+          <div class="small-card-product-name">Waggoner Financial</div>
+          <div class="small-card-product-price">UI/UX Designer & PM</div>
+        </div>
+
+        <div class="small-project-card" style="background: linear-gradient(135deg, #00663B 0%, #004D2B 100%);">
+          <div class="small-card-logo"><img src="asset/MSU Logo.png" alt="Michigan State University" class="small-logo-img" /></div>
+          <div class="small-card-product-name">Michigan State University</div>
+          <div class="small-card-product-price">UI/UX Designer</div>
+        </div>
+
+        <div class="small-project-card" style="background: linear-gradient(135deg, #1B5E3F 0%, #0F3D2A 100%);">
+          <div class="small-card-logo"><img src="asset/MSU ESK8 Logo.png" alt="MSU E-Skateboard Club" class="small-logo-img" /></div>
+          <div class="small-card-product-name">MSU E-Skateboard Club</div>
+          <div class="small-card-product-price">President & Designer</div>
+        </div>
+
+        <div class="small-project-card" style="background: linear-gradient(135deg, #2D5F4F 0%, #1A4032 100%);">
+          <div class="small-card-logo"><img src="asset/Arum Logo.png" alt="Arum" class="small-logo-img" /></div>
+          <div class="small-card-product-name">Arum</div>
+          <div class="small-card-product-price">UI/UX Designer & PM</div>
+        </div>
+
+        <div class="small-project-card" style="background: linear-gradient(135deg, #1B5E3F 0%, #0F3D2A 100%);">
+          <div class="small-card-logo"><img src="asset/CAHP Logo.png" alt="CAHP" class="small-logo-img" /></div>
+          <div class="small-card-product-name">Capital Area Housing Partnership</div>
+          <div class="small-card-product-price">UI/UX Designer & PM</div>
+        </div>
+      </div>
     </section>
 
      <footer class="footer">
@@ -159,5 +193,108 @@
       </nav>
     </footer>
   </div>
+
+  <script>
+    // Carousel Navigation
+    const slides = document.querySelectorAll('input[name="carousel"]');
+    const carousel = document.querySelector('.carousel-wrapper');
+    let currentSlide = 0;
+    let isTransitioning = false;
+
+    function goToSlide(index) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].checked = true;
+      
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 600);
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    // Keyboard Navigation (Arrow Keys)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    // Swipe/Drag Navigation
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+
+    carousel.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      dragStartX = e.clientX;
+      carousel.style.cursor = 'grabbing';
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const currentDrag = e.clientX - dragStartX;
+      if (Math.abs(currentDrag) > 5) {
+        carousel.style.cursor = 'grabbing';
+      }
+    });
+
+    carousel.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      touchEndX = e.clientX;
+      handleSwipe();
+      carousel.style.cursor = 'grab';
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      if (isDragging) {
+        isDragging = false;
+        carousel.style.cursor = 'grab';
+      }
+    });
+
+    // Touch Swipe Navigation
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          nextSlide(); // Swiped left, go to next
+        } else {
+          prevSlide(); // Swiped right, go to previous
+        }
+      }
+    }
+
+    // Click on control dots
+    const controlDots = document.querySelectorAll('.control-dot');
+    controlDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+      });
+    });
+  </script>
 </body>
 </html>
