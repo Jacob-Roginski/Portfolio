@@ -1468,9 +1468,9 @@ html, body {
 
 .mobile-nav {
   display: none;
-  position: fixed;
-  top: 70px;
-  right: 20px;
+  position: absolute;
+  top: 100%;
+  right: 0;
   flex-direction: column;
   align-items: stretch;
   background-color: var(--bg-primary);
@@ -1481,6 +1481,7 @@ html, body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   padding-right: 8px;
+  margin-top: 8px;
 }
 
 .hamburger-checkbox:checked ~ .mobile-nav {
