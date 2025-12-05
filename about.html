@@ -10,8 +10,14 @@
     <div class="wrapper">
         
         <header class="header">
-            <div class="logo">
-                <img src="asset/Union.png" alt="Jake Roginski" class="logo-image" />
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="asset/Union.png" alt="Jake Roginski" class="logo-image" />
+                    <img src="asset/Union white.png" alt="Jake Roginski" class="logo-image dark-hidden" />
+                </a>
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <img src="asset/dark icon.png" alt="Toggle dark mode" class="toggle-icon-light" />
+                </button>
             </div>
             <div class="hamburger-menu">
                 <input type="checkbox" id="hamburger-toggle" class="hamburger-checkbox" />
@@ -78,6 +84,45 @@
         <a href="https://www.linkedin.com/in/jacob-h-roginski/" class="linkedin-link">LinkedIn</a>
       </nav>
     </footer>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const htmlElement = document.documentElement;
+    const logoImages = document.querySelectorAll('.logo-image');
+    const toggleIcon = document.querySelector('.toggle-icon-light');
+
+    // Check for saved dark mode preference or default to light mode
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+      htmlElement.classList.add('dark-mode');
+      logoImages[0].classList.add('dark-hidden');
+      logoImages[1].classList.remove('dark-hidden');
+      if (toggleIcon) toggleIcon.src = 'asset/icons/dark icon.png';
+    } else {
+      logoImages[0].classList.remove('dark-hidden');
+      logoImages[1].classList.add('dark-hidden');
+      if (toggleIcon) toggleIcon.src = 'asset/icons/light icon.png';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      htmlElement.classList.toggle('dark-mode');
+      const isNowDark = htmlElement.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isNowDark);
+      
+      // Toggle logo visibility
+      if (isNowDark) {
+        logoImages[0].classList.add('dark-hidden');
+        logoImages[1].classList.remove('dark-hidden');
+        if (toggleIcon) toggleIcon.src = 'asset/icons/dark icon.png';
+      } else {
+        logoImages[0].classList.remove('dark-hidden');
+        logoImages[1].classList.add('dark-hidden');
+        if (toggleIcon) toggleIcon.src = 'asset/icons/light icon.png';
+      }
+    });
+  </script>
 
     </div>
 </body>
