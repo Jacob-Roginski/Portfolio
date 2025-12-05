@@ -1,1839 +1,219 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Runde:wght@400;500;600;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  background-color: #f9f9f9;
-  color: #131313;
-  font-family: 'Open Runde', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-}
-
-.wrapper {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 40px;
-  background-color: #f9f9f9;
-}
-
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 0;
-  margin-bottom: 80px;
-}
-
-.logo {
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-}
-
-.logo-image {
-  height: 50px;
-  width: auto;
-  object-fit: contain;
-}
-
-.nav {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-}
-
-.nav a {
-  text-decoration: none;
-  color: #131313;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav a:hover {
-  color: #4a90e2;
-}
-
-.nav a.active {
-  font-weight: 700;
-  color: #131313;
-}
-
-/* Hero Section */
-.hero {
-  margin-bottom: 100px;
-  width: 100%;
-}
-
-.hero-title {
-  font-size: 56px;
-  font-weight: 600;
-  line-height: 1.1;
-  margin-bottom: 32px;
-  color: #131313;
-}
-
-.hero-text {
-  font-size: 20px;
-  line-height: 1.6;
-  color: #686868;
-  margin-bottom: 40px;
-  width: 100%;
-}
-
-.hero-text strong {
-  color: #131313;
-  font-weight: 700;
-}
-
-/* Main Project Section */
-.main-project {
-  margin-bottom: 120px;
-  background-color: #f0f0f0;
-  padding: 60px 40px;
-  border-radius: 12px;
-  margin-left: -40px;
-  margin-right: -40px;
-  padding-left: calc(40px + 40px);
-  padding-right: calc(40px + 40px);
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.project-image-container {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.project-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-}
-
-.project-details {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding-top: 20px;
-  justify-content: center;
-}
-
-.project-meta {
-  font-size: 14px;
-  color: #686868;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 500;
-}
-
-.project-title {
-  font-size: 40px;
-  font-weight: 600;
-  color: #4a90e2;
-  line-height: 1.2;
-  margin: 0;
-}
-
-.project-section-item {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.project-section-item h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #131313;
-  margin: 0;
-}
-
-.project-section-item p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #686868;
-  margin: 0;
-}
-
-.btn-learn-more {
-  display: inline-block;
-  text-decoration: underline;
-  color: #131313;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.2s;
-  align-self: flex-start;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  margin-top: 12px;
-}
-
-.btn-learn-more:hover {
-  color: #4a90e2;
-}
-
-/* Other Projects */
-.other-projects {
-  margin-bottom: 120px;
-  padding: 80px 0;
-}
-
-.other-projects-title {
-  font-size: 32px;
-  font-weight: 600;
-  color: #131313;
-  margin: 0 0 40px 0;
-  text-align: left;
-}
-
-.carousel-wrapper {
-  position: relative;
-  width: 100%;
-  padding: 40px 0;
-}
-
-.carousel-wrapper input {
-  display: none;
-}
-
-.carousel-container {
-  position: relative;
-  width: 100%;
-  height: 800px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 24px;
-  user-select: none;
-  cursor: grab;
-  padding: 40px 0;
-}
-
-.carousel-slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: scale(0.8) translateX(100px);
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: 1;
-  pointer-events: none;
-}
-
-#slide1:checked ~ .carousel-container .carousel-slide:nth-of-type(1),
-#slide2:checked ~ .carousel-container .carousel-slide:nth-of-type(2),
-#slide3:checked ~ .carousel-container .carousel-slide:nth-of-type(3),
-#slide4:checked ~ .carousel-container .carousel-slide:nth-of-type(4),
-#slide5:checked ~ .carousel-container .carousel-slide:nth-of-type(5) {
-  opacity: 1;
-  transform: scale(1) translateX(0);
-  z-index: 10;
-  pointer-events: auto;
-}
-
-#slide1:checked ~ .carousel-container .carousel-slide:nth-of-type(5),
-#slide2:checked ~ .carousel-container .carousel-slide:nth-of-type(1),
-#slide3:checked ~ .carousel-container .carousel-slide:nth-of-type(2),
-#slide4:checked ~ .carousel-container .carousel-slide:nth-of-type(3),
-#slide5:checked ~ .carousel-container .carousel-slide:nth-of-type(4) {
-  opacity: 0.5;
-  transform: scale(0.85) translateX(-120px);
-  z-index: 5;
-}
-
-#slide1:checked ~ .carousel-container .carousel-slide:nth-of-type(2),
-#slide2:checked ~ .carousel-container .carousel-slide:nth-of-type(3),
-#slide3:checked ~ .carousel-container .carousel-slide:nth-of-type(4),
-#slide4:checked ~ .carousel-container .carousel-slide:nth-of-type(5),
-#slide5:checked ~ .carousel-container .carousel-slide:nth-of-type(1) {
-  opacity: 0.5;
-  transform: scale(0.85) translateX(120px);
-  z-index: 5;
-}
-
-.carousel-item {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 28px 20px 24px 20px;
-  border-radius: 28px;
-  align-items: center;
-  text-align: center;
-  width: 550px;
-  height: 650px;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-  position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  justify-content: space-between;
-}
-
-.carousel-item:hover {
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
-  transform: translateY(-5px);
-}
-
-.card-date-top {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: white;
-  position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
-}
-
-.card-open-icon {
-  font-size: 24px;
-  color: white;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-}
-
-.card-icons {
-  display: none;
-}
-
-.card-date,
-.card-share {
-  font-size: 24px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  color: white;
-  user-select: none;
-}
-
-.card-date {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  display: none;
-}
-
-.card-share {
-  display: none;
-}
-
-.card-logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 8px;
-}
-
-.logo-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
-.card-product-image {
-  width: 360px;
-  height: 280px;
-  border-radius: 12px;
-  box-shadow: none;
-  margin: 12px 0 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
-  background: transparent;
-}
-
-.product-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-}
-
-.card-product-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin: 16px 0 0 0;
-}
-
-.card-product-price {
-  font-size: 32px;
-  font-weight: 700;
-  color: white;
-  margin: 8px 0 0 0;
-}
-
-.card-product-btn {
-  background-color: white;
-  color: #131313;
-  border: none;
-  padding: 12px 32px;
-  border-radius: 20px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: 'Open Runde', sans-serif;
-}
-
-.card-product-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-logo-box,
-.carousel-card-title,
-.carousel-description,
-.carousel-buttons,
-.btn-demo,
-.btn-code {
-  display: none;
-}
-
-.carousel-controls {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 60px;
-  padding-bottom: 20px;
-}
-
-.control-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #d0d0d0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-#slide1:checked ~ .carousel-controls label:nth-of-type(1),
-#slide2:checked ~ .carousel-controls label:nth-of-type(2),
-#slide3:checked ~ .carousel-controls label:nth-of-type(3),
-#slide4:checked ~ .carousel-controls label:nth-of-type(4),
-#slide5:checked ~ .carousel-controls label:nth-of-type(5) {
-  background-color: #4a90e2;
-  transform: scale(1.3);
-}
-
-.control-dot:hover {
-  background-color: #b0b0b0;
-}
-
-/* Small Projects Grid */
-.other-projects-title {
-  font-size: 32px;
-  font-weight: 600;
-  color: #131313;
-  margin: 80px 0 40px 0;
-  text-align: left;
-}
-
-.small-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-bottom: 60px;
-}
-
-.small-project-card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 24px;
-  border-radius: 20px;
-  align-items: center;
-  text-align: center;
-  min-height: 280px;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-  position: relative;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  justify-content: center;
-}
-
-.small-project-card:hover {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-  transform: translateY(-3px);
-}
-
-.small-card-logo {
-  width: 70px;
-  height: 70px;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 8px;
-}
-
-.small-logo-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
-.small-card-product-name {
-  font-size: 14px;
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin: 8px 0 0 0;
-}
-
-.small-card-product-price {
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 4px 0 0 0;
-}
-
-/* Footer */
-.footer {
-  background-color: #f9f9f9;
-  padding: 60px 0;
-  margin-bottom: 40px;
-}
-
-.footer-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 60px;
-}
-
-.footer-contact h2 {
-  font-size: 16px;
-  font-weight: 500;
-  color: #686868;
-  margin: 0;
-  letter-spacing: 0.05em;
-}
-
-.contact-email {
-  font-size: 40px;
-  font-weight: 600;
-  color: #131313;
-  text-decoration: none;
-  transition: color 0.2s;
-  display: inline-block;
-}
-
-.contact-email:hover {
-  color: #4a90e2;
-}
-
-.btn-contact {
-  display: inline-block;
-  background-color: #252525;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  transition: background-color 0.2s;
-  cursor: pointer;
-  border: none;
-  margin-top: 20px;
-  width: fit-content;
-}
-
-.btn-contact:hover {
-  background-color: #131313;
-}
-
-.footer-divider {
-  height: 1px;
-  background-color: #e8e8e8;
-  margin-bottom: 40px;
-}
-
-.footer-nav {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0;
-  border: none;
-  gap: 40px;
-}
-
-.footer-nav a {
-  text-decoration: none;
-  color: #131313;
-  font-size: 15px;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.footer-nav a:hover {
-  color: #686868;
-}
-
-.linkedin-link {
-  font-weight: 600;
-  margin-left: auto;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .wrapper {
-    padding: 0 32px;
-  }
-
-  .project-grid {
-    gap: 40px;
-  }
-
-  .carousel-item {
-    width: 400px;
-    height: 480px;
-    padding: 24px 18px 20px 18px;
-  }
-
-  .card-logo {
-    width: 90px;
-    height: 90px;
-    margin-top: 36px;
-  }
-
-  .card-product-image {
-    width: 160px;
-    height: 160px;
-  }
-
-  .card-product-name {
-    font-size: 15px;
-  }
-
-  .card-product-price {
-    font-size: 24px;
-  }
-
-  .card-product-btn {
-    padding: 10px 28px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 768px) {
-  .wrapper {
-    padding: 0 24px;
-  }
-
-  .header {
-    padding: 32px 0;
-    margin-bottom: 60px;
-  }
-
-  .nav {
-    gap: 24px;
-    font-size: 14px;
-  }
-
-  .hero {
-    margin-bottom: 60px;
-  }
-
-  .hero-title {
-    font-size: 40px;
-    margin-bottom: 24px;
-  }
-
-  .hero-text {
-    font-size: 16px;
-  }
-
-  .main-project {
-    margin-bottom: 80px;
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .project-image-container {
-    aspect-ratio: 16 / 9;
-  }
-
-  .carousel-container {
-    height: 480px;
-  }
-
-  .carousel-item {
-    width: 340px;
-    height: 420px;
-    padding: 22px 16px 18px 16px;
-  }
-
-  .card-logo {
-    width: 80px;
-    height: 80px;
-    margin-top: 32px;
-  }
-
-  .card-product-image {
-    width: 140px;
-    height: 140px;
-    margin: 4px 0 0 0;
-  }
-
-  .card-product-name {
-    font-size: 13px;
-  }
-
-  .card-product-price {
-    font-size: 22px;
-  }
-
-  .card-product-btn {
-    padding: 8px 24px;
-    font-size: 13px;
-  }
-
-  .footer {
-    padding: 40px 0;
-  }
-
-  .footer-nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .contact-email {
-    font-size: 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .wrapper {
-    padding: 0 16px;
-  }
-
-  .header {
-    padding: 24px 0;
-    margin-bottom: 40px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav {
-    width: 100%;
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .hero-title {
-    font-size: 32px;
-    margin-bottom: 16px;
-  }
-
-  .hero-text {
-    font-size: 14px;
-  }
-
-  .project-title {
-    font-size: 28px;
-  }
-
-  .carousel-container {
-    height: 420px;
-  }
-
-  .carousel-item {
-    width: 280px;
-    height: 360px;
-    padding: 18px 12px 14px 12px;
-    gap: 10px;
-  }
-
-  .card-logo {
-    width: 70px;
-    height: 70px;
-    margin-top: 28px;
-  }
-
-  .card-product-image {
-    width: 120px;
-    height: 120px;
-    margin: 2px 0 0 0;
-  }
-
-  .card-product-name {
-    font-size: 12px;
-  }
-
-  .card-product-price {
-    font-size: 20px;
-  }
-
-  .card-product-btn {
-    padding: 6px 20px;
-    font-size: 12px;
-  }
-
-  .card-share {
-    font-size: 20px;
-    top: 16px;
-    right: 16px;
-  }
-
-  .carousel-controls {
-    gap: 8px;
-  }
-
-  .control-dot {
-    width: 10px;
-    height: 10px;
-  }
-
-  .footer {
-    padding: 24px 16px;
-  }
-
-  .contact-email {
-    font-size: 22px;
-  }
-}
-
-/* About Section */
-.about-section {
-  margin: 80px 0;
-  padding: 80px 0;
-}
-
-.about-container {
-  display: flex;
-  gap: 200px;
-  align-items: flex-start;
-}
-
-.about-content {
-  flex: 1;
-}
-
-.about-title {
-  font-size: 56px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  letter-spacing: -0.02em;
-}
-
-.about-text {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #333333;
-  margin-bottom: 24px;
-  font-weight: 400;
-}
-
-.about-social {
-  display: flex;
-  gap: 24px;
-  margin-top: 40px;
-}
-
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border: none;
-  border-radius: 0;
-  transition: all 0.3s ease;
-}
-
-.social-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.social-link:hover .social-icon {
-  filter: brightness(0) saturate(100%) invert(41%) sepia(96%) saturate(649%) hue-rotate(202deg) brightness(99%) contrast(102%);
-}
-
-.about-image {
-  flex: 0 0 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-portrait {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-@media (max-width: 1024px) {
-  .about-container {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .about-image {
-    flex: 0 0 auto;
-    max-width: 300px;
-  }
-
-  .about-title {
-    font-size: 42px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-section {
-    margin: 40px 0;
-    padding: 40px 0;
-  }
-
-  .about-title {
-    font-size: 32px;
-    margin-bottom: 24px;
-  }
-
-  .about-text {
-    font-size: 15px;
-    margin-bottom: 16px;
-  }
-
-  .about-image {
-    max-width: 250px;
-  }
-}
-
-/* Contact Section */
-.contact-section {
-  margin: 80px 0;
-  padding: 80px 0;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-}
-
-.contact-container {
-  display: flex;
-  gap: 100px;
-  align-items: center;
-  width: 100%;
-}
-
-.contact-form-wrapper {
-  flex: 1;
-}
-
-.contact-title {
-  font-size: 56px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  letter-spacing: -0.02em;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 100%;
-  width: 100%;
-}
-
-.form-input {
-  padding: 14px 16px;
-  border: 1px solid #999999;
-  border-radius: 4px;
-  font-family: 'Open Runde', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
-  background-color: #ffffff;
-  color: #666666;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: #131313;
-  box-shadow: 0 0 0 3px rgba(19, 19, 19, 0.1);
-}
-
-.form-textarea {
-  padding: 14px 16px;
-  border: 1px solid #999999;
-  border-radius: 4px;
-  font-family: 'Open Runde', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
-  font-size: 14px;
-  min-height: 140px;
-  resize: vertical;
-  transition: border-color 0.3s ease;
-  background-color: #ffffff;
-  color: #666666;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.form-textarea:focus {
-  outline: none;
-  border-color: #131313;
-  box-shadow: 0 0 0 3px rgba(19, 19, 19, 0.1);
-}
-
-.form-submit {
-  align-self: flex-start;
-  padding: 12px 28px;
-  background-color: #131313;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 8px;
-}
-
-.form-submit:hover {
-  background-color: #333333;
-  transform: scale(1.05);
-}
-
-.weather-widget {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.weather-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  text-align: center;
-}
-
-.weather-image {
-  max-width: 100%;
-  width: 380px;
-  height: auto;
-  object-fit: contain;
-}
-
-.weather-location {
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: #131313;
-  display: none;
-}
-
-.weather-description {
-  font-size: 14px;
-  color: #666666;
-  font-weight: 400;
-}
-
-.weather-temp {
-  font-size: 48px;
-  font-weight: 700;
-  color: #131313;
-  margin-top: 8px;
-}
-
-@media (max-width: 1024px) {
-  .contact-container {
-    flex-direction: column;
-    gap: 60px;
-  }
-
-  .contact-title {
-    font-size: 42px;
-  }
-
-  .weather-image {
-    max-width: 100%;
-    width: 320px;
-  }
-
-  .weather-temp {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-section {
-    margin: 40px 0;
-    padding: 40px 0;
-  }
-
-  .contact-title {
-    font-size: 32px;
-    margin-bottom: 24px;
-  }
-
-  .contact-form {
-    max-width: 100%;
-  }
-
-  .weather-image {
-    max-width: 100%;
-    width: 280px;
-  }
-
-  .weather-temp {
-    font-size: 32px;
-  }
-
-  .weather-location {
-    font-size: 16px;
-  }
-}
-
-/* Resume Section */
-.resume-section {
-  margin: 60px 0;
-  padding: 60px 0;
-}
-
-.resume-header {
-  margin-bottom: 40px;
-}
-
-.resume-title {
-  font-size: 48px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.resume-download {
-  display: inline-flex;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  align-items: center;
-}
-
-.doc-icon {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  transition: all 0.3s ease;
-}
-
-.resume-download:hover .doc-icon {
-  filter: brightness(0) saturate(100%) invert(41%) sepia(96%) saturate(649%) hue-rotate(202deg) brightness(99%) contrast(102%);
-}
-
-.resume-content {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
-.resume-block {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.resume-section-title {
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #131313;
-  margin-bottom: 4px;
-}
-
-.resume-item {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.resume-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.resume-item-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #131313;
-  margin: 0;
-}
-
-.resume-item-subtitle {
-  font-size: 16px;
-  font-weight: 400;
-  color: #686868;
-  margin-top: 4px;
-  line-height: 1.4;
-}
-
-.resume-item-role {
-  font-size: 16px;
-  font-weight: 400;
-  color: #686868;
-  margin-top: 4px;
-}
-
-.resume-item-date {
-  font-size: 16px;
-  font-weight: 400;
-  color: #686868;
-  white-space: nowrap;
-}
-
-.resume-item-detail {
-  font-size: 16px;
-  color: #686868;
-  margin: 0;
-}
-
-.resume-item-indent {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333333;
-  margin: 4px 0 4px 32px;
-  padding-left: 0;
-}
-
-.resume-item-bullets {
-  margin: 0;
-  padding-left: 20px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333333;
-}
-
-.resume-item-bullets li {
-  margin-bottom: 8px;
-}
-
-.resume-skills-text {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333333;
-  margin: 0;
-}
-
-.accent-link {
-  color: #4a90e2;
-  font-weight: 500;
-}
-
-@media (max-width: 1024px) {
-  .resume-section {
-    margin: 40px 0;
-    padding: 40px 0;
-  }
-
-  .resume-title {
-    font-size: 40px;
-  }
-
-  .resume-section-title {
-    font-size: 22px;
-  }
-
-  .resume-item-title {
-    font-size: 17px;
-  }
-
-  .resume-item-header {
-    flex-direction: column;
-  }
-
-  .resume-item-date {
-    white-space: normal;
-  }
-}
-
-@media (max-width: 768px) {
-  .resume-section {
-    margin: 30px 0;
-    padding: 30px 0;
-  }
-
-  .resume-title {
-    font-size: 32px;
-  }
-
-  .resume-section-title {
-    font-size: 20px;
-  }
-
-  .resume-item-title {
-    font-size: 16px;
-  }
-
-  .resume-item-subtitle,
-  .resume-item-role,
-  .resume-item-date,
-  .resume-item-detail {
-    font-size: 14px;
-  }
-
-  .resume-item-indent,
-  .resume-item-bullets,
-  .resume-skills-text {
-    font-size: 15px;
-  }
-
-  .resume-content {
-    gap: 40px;
-  }
-
-  .resume-block {
-    gap: 20px;
-  }
-}
-
-/* Hamburger Menu */
-.hamburger-menu {
-  display: none;
-  position: relative;
-}
-
-.hamburger-checkbox {
-  display: none;
-}
-
-.hamburger-icon {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 6px;
-}
-
-.hamburger-icon span {
-  width: 24px;
-  height: 2px;
-  background-color: #131313;
-  transition: all 0.3s ease;
-  border-radius: 2px;
-}
-
-.hamburger-checkbox:checked ~ .hamburger-icon span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
-}
-
-.hamburger-checkbox:checked ~ .hamburger-icon span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-checkbox:checked ~ .hamburger-icon span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
-.mobile-nav {
-  display: none;
-  position: fixed;
-  top: 70px;
-  right: 20px;
-  flex-direction: column;
-  background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  min-width: 180px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-.hamburger-checkbox:checked ~ .mobile-nav {
-  display: flex;
-}
-
-.mobile-nav a {
-  padding: 12px 20px;
-  text-decoration: none;
-  color: #131313;
-  font-size: 14px;
-  font-weight: 500;
-  border-bottom: 1px solid #e0e0e0;
-  transition: background-color 0.3s ease;
-}
-
-.mobile-nav a:last-child {
-  border-bottom: none;
-}
-
-.mobile-nav a:hover {
-  background-color: #f0f0f0;
-}
-
-.mobile-nav a.active {
-  color: #4a90e2;
-  font-weight: 600;
-}
-
-.desktop-nav {
-  display: flex;
-}
-
-/* Project Showcase Page */
-.project-showcase {
-  margin: 80px 0 120px 0;
-}
-
-.project-showcase-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.project-showcase-logo {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.showcase-logo-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.project-showcase-title {
-  font-size: 56px;
-  font-weight: 600;
-  color: #131313;
-  margin-bottom: 16px;
-  line-height: 1.1;
-}
-
-.project-showcase-meta {
-  font-size: 18px;
-  color: #686868;
-  font-weight: 500;
-}
-
-.showcase-section {
-  margin-bottom: 80px;
-}
-
-.showcase-section-title {
-  font-size: 32px;
-  font-weight: 600;
-  color: #131313;
-  margin-bottom: 24px;
-  line-height: 1.2;
-}
-
-.showcase-text {
-  font-size: 18px;
-  line-height: 1.8;
-  color: #686868;
-  margin-bottom: 16px;
-}
-
-.showcase-list {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 0;
-}
-
-.showcase-list li {
-  font-size: 18px;
-  line-height: 1.8;
-  color: #686868;
-  margin-bottom: 12px;
-  padding-left: 32px;
-  position: relative;
-}
-
-.showcase-list li:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #4a90e2;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 1;
-}
-
-.showcase-approach-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 32px;
-  margin-top: 32px;
-}
-
-.approach-item {
-  background-color: #f0f0f0;
-  padding: 32px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-
-.approach-item:hover {
-  background-color: #e8e8e8;
-  transform: translateY(-4px);
-}
-
-.approach-item h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #131313;
-  margin-bottom: 12px;
-}
-
-.approach-item p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #686868;
-  margin: 0;
-}
-
-.showcase-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.feature-card {
-  background: linear-gradient(135deg, #f8f9fa 0%, #f0f0f0 100%);
-  padding: 28px;
-  border-radius: 16px;
-  border-left: 4px solid #4a90e2;
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-  box-shadow: 0 8px 24px rgba(74, 144, 226, 0.15);
-  transform: translateY(-4px);
-}
-
-.feature-card h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #131313;
-  margin-bottom: 12px;
-}
-
-.feature-card p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #686868;
-  margin: 0;
-}
-
-.showcase-image-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
-  margin-top: 32px;
-}
-
-.showcase-image-item {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.showcase-image {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.showcase-image:hover {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-}
-
-.showcase-image-caption {
-  font-size: 14px;
-  color: #686868;
-  font-weight: 500;
-  text-align: center;
-}
-
-/* Design Carousel */
-.design-carousels-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-top: 40px;
-}
-
-.design-carousel-wrapper {
-  position: relative;
-  width: 100%;
-  user-select: none;
-}
-
-.design-carousel-wrapper input {
-  display: none;
-}
-
-.design-carousel-container {
-  position: relative;
-  width: 100%;
-  height: 800px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  overflow: hidden;
-  background-color: #f9f9f9;
-  cursor: grab;
-  padding: 60px 0;
-}
-
-.design-carousel-slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: scale(0.9) translateX(50px);
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: 1;
-  pointer-events: none;
-}
-
-#design-slide1-1:checked ~ .design-carousel-container .design-carousel-slide:nth-of-type(1),
-#design-slide1-2:checked ~ .design-carousel-container .design-carousel-slide:nth-of-type(2),
-#design-slide1-3:checked ~ .design-carousel-container .design-carousel-slide:nth-of-type(3),
-#design-slide2-1:checked ~ .design-carousel-container .design-carousel-slide:nth-of-type(1),
-#design-slide2-2:checked ~ .design-carousel-container .design-carousel-slide:nth-of-type(2),
-#design-slide2-3:checked ~ .design-carousel-container .design-carousel-slide:nth-of-type(3) {
-  opacity: 1;
-  transform: scale(1) translateX(0);
-  z-index: 10;
-  pointer-events: auto;
-}
-
-.design-slide-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  width: 100%;
-  height: 100%;
-  padding: 60px 40px;
-}
-
-.design-showcase-image {
-  max-width: 95%;
-  max-height: 90%;
-  object-fit: contain;
-  border-radius: 12px;
-}
-
-.design-slide-caption {
-  font-size: 16px;
-  color: #686868;
-  font-weight: 500;
-  text-align: center;
-  margin: 0;
-}
-
-.design-carousel-controls {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 32px;
-  padding-bottom: 20px;
-}
-
-.design-control-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #d0d0d0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-#design-slide1-1:checked ~ .design-carousel-controls label:nth-of-type(1),
-#design-slide1-2:checked ~ .design-carousel-controls label:nth-of-type(2),
-#design-slide1-3:checked ~ .design-carousel-controls label:nth-of-type(3),
-#design-slide2-1:checked ~ .design-carousel-controls label:nth-of-type(1),
-#design-slide2-2:checked ~ .design-carousel-controls label:nth-of-type(2),
-#design-slide2-3:checked ~ .design-carousel-controls label:nth-of-type(3) {
-  background-color: #4a90e2;
-  transform: scale(1.3);
-}
-
-.design-control-dot:hover {
-  background-color: #b0b0b0;
-}
-
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.skill-tag {
-  background-color: #4a90e2;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-  background-color: #3876ba;
-  transform: translateY(-2px);
-}
-
-.showcase-cta {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 80px;
-  padding-top: 80px;
-  border-top: 1px solid #e0e0e0;
-  flex-wrap: wrap;
-}
-
-.btn-visit-project,
-.btn-back-home {
-  display: inline-block;
-  padding: 14px 40px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  text-align: center;
-  border: none;
-}
-
-.btn-visit-project {
-  background-color: #4a90e2;
-  color: white;
-}
-
-.btn-visit-project:hover {
-  background-color: #3876ba;
-  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
-  transform: translateY(-2px);
-}
-
-.btn-back-home {
-  background-color: #f0f0f0;
-  color: #131313;
-  border: 2px solid #131313;
-}
-
-.btn-back-home:hover {
-  background-color: #131313;
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .project-showcase-title {
-    font-size: 40px;
-  }
-
-  .showcase-section-title {
-    font-size: 24px;
-  }
-
-  .showcase-text,
-  .showcase-list li {
-    font-size: 16px;
-  }
-
-  .showcase-approach-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .showcase-features {
-    grid-template-columns: 1fr;
-  }
-
-  .project-showcase-header {
-    margin-bottom: 60px;
-  }
-
-  .showcase-section {
-    margin-bottom: 60px;
-  }
-
-  .design-carousels-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hamburger-menu {
-    display: flex;
-    align-items: center;
-  }
-
-  .desktop-nav {
-    display: none;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Jake Roginski</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <div class="wrapper">
+        
+        <header class="header">
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="asset/Union.png" alt="Jake Roginski" class="logo-image" />
+                    <img src="asset/Union white.png" alt="Jake Roginski" class="logo-image dark-hidden" />
+                </a>
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <img src="asset/dark icon.png" alt="Toggle dark mode" class="toggle-icon-light" />
+                </button>
+            </div>
+            <div class="hamburger-menu">
+                <input type="checkbox" id="hamburger-toggle" class="hamburger-checkbox" />
+                <label for="hamburger-toggle" class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <nav class="nav mobile-nav">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="resume.html" class="active">Resume</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
+            <nav class="nav desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="resume.html" class="active">Resume</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <section class="resume-section">
+            <div class="resume-header">
+                <h1 class="resume-title">Resume. <a href="Jacob Roginski Resume.docx.pdf" target="_blank" class="resume-download"><img src="asset/doc image.png" alt="PDF Download" class="doc-icon"></a></h1>
+            </div>
+
+            <div class="resume-content">
+                <!-- Education Section -->
+                <div class="resume-block">
+                    <h2 class="resume-section-title">Education</h2>
+                    
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <h3 class="resume-item-title">Michigan State University, East Lansing, MI</h3>
+                                <div class="resume-item-subtitle">
+                                    <span class="accent-link">B.A. Experience Architecture</span><br>
+                                    <span class="accent-link">B.A. Information Science</span>
+                                </div>
+                            </div>
+                            <div class="resume-item-date">May 2027</div>
+                        </div>
+                        <p class="resume-item-detail">Minors: Business</p>
+                    </div>
+                </div>
+
+                <!-- Relevant Experience Section -->
+                <div class="resume-block">
+                    <h2 class="resume-section-title">Relevant Experience</h2>
+                    
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <h3 class="resume-item-title">Lens, East Lansing, MI</h3>
+                                <p class="resume-item-role">Lead UI/UX Designer & Researcher</p>
+                            </div>
+                            <div class="resume-item-date">Nov. 2025-Present</div>
+                        </div>
+                        <p class="resume-item-indent">Partnered with founder to design an accessible software solution that streamlines the research process across multiple academic disciplines</p>
+                        <p class="resume-item-indent">Drove the product lifecycle from zero to launch through competitive analysis, user research, and iterative prototyping</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <h3 class="resume-item-title">Waggoner Financial, East Lansing, MI</h3>
+                                <p class="resume-item-role">UI/UX Designer, Product Manager</p>
+                            </div>
+                            <div class="resume-item-date">Aug. 2025-Dec. 2025</div>
+                        </div>
+                        <p class="resume-item-indent">Designed a user-centered internal tool for 50+ employees through continuous client feedback, improving accessibility to key information and boosting overall productivity</p>
+                        <p class="resume-item-indent">Oversaw project management responsibilities including meeting facilitation, client communication, and team leadership across all phases of development</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <h3 class="resume-item-title">Arum, East Lansing, MI</h3>
+                                <p class="resume-item-role">UI/UX Designer, Product Manager</p>
+                            </div>
+                            <div class="resume-item-date">Aug. 2025-Dec. 2025</div>
+                        </div>
+                        <p class="resume-item-indent">Designed and delivered a fully interactive high-fidelity prototype. Also with a product management role by organizing workflows in Jira, facilitating team and stakeholder discussions, and guiding the project from concept through final delivery</p>
+                        <p class="resume-item-indent">Led cross-functional communication by running meetings, aligning design decisions with product goals, and ensuring a smooth transition from planning to execution</p>
+                    </div>
+                     <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <h3 class="resume-item-title">MSU RHS Digital Strategic Services, East Lansing, MI</h3>
+                                <p class="resume-item-role">Information Technician Assistant</p>
+                            </div>
+                            <div class="resume-item-date">Sept. 2023-Present</div>
+                        </div>
+                        <p class="resume-item-indent">Responsible for supporting all computers, workstations, printers/copiers, digital signs, time clocks, and all employee equipment that involves replacing, fixing, & troubleshooting any technical issues</p>
+                        <p class="resume-item-indent">Support 13+ departments and units for 2000+ full-time employees active in the Student Life and Engagement division</p>
+                    </div>
+                </div>
+
+                <!-- Additional Experience Section -->
+                <div class="resume-block">
+                    <h2 class="resume-section-title">Additional Experience</h2>
+                    
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <h3 class="resume-item-title">MSU Electric Skateboard Club, East Lansing, MI</h3>
+                                <p class="resume-item-role">President, Founder, Events Coordinator, Marketing Lead</p>
+                            </div>
+                            <div class="resume-item-date">Oct. 2024-Present</div>
+                        </div>
+                        <p class="resume-item-indent">Founded and led the MSU's first Electric Skateboard Club, growing membership to 40+ active participants and fostering a strong community around personal electric transport</p>
+                        <p class="resume-item-indent">Organize group rides, schedule events with areas nearby, safety promotion, giving responsible riding practices, increasing sustainability, and upholding respect</p>
+                        <p class="resume-item-indent">Manage the club's social media presence, create engaging Instagram content to drive awareness, increase engagement, and document several club activities</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <h3 class="resume-item-title">MSU Esports (Rocket League), East Lansing, MI</h3>
+                                <p class="resume-item-role">Facilitator, Media Broadcast Announcer, Team Club Manager</p>
+                            </div>
+                            <div class="resume-item-date">Nov. 2023-Present</div>
+                        </div>
+                        <p class="resume-item-indent">Coordinate competitive gaming events in collaboration with MSU Esports and MSU ECA to generate excitement around the club</p>
+                        <p class="resume-item-indent">Host and broadcast live esport matches live on Twitch, providing engaging play-by-play commentary</p>
+                        <p class="resume-item-indent">Engage community through professional communication, facilitating meetings and relationships</p>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="resume-block">
+                    <h2 class="resume-section-title">Skills</h2>
+                    <p class="resume-skills-text">Figma (Expert), Jira (Intermediate), Basecamp (Basic), Visual Studio Code (Intermediate), CSS (Intermediate), HTML (Intermediate), JavaScript (Basic), TeamDynamix (Intermediate)</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+      <div class="footer-contact">
+        <h2>Find me at</h2>
+        <a href="mailto:jhrogins305@gmail.com" class="contact-email">jhrogins305@gmail.com</a>
+        <a href="contact.html" class="btn-contact">Contact Me</a>
+      </div>
+      
+      <div class="footer-divider"></div>
+      
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/jacob-h-roginski/" class="linkedin-link">LinkedIn</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const htmlElement = document.documentElement;
+    const logoImages = document.querySelectorAll('.logo-image');
+    const toggleIcon = document.querySelector('.toggle-icon-light');
+
+    // Check for saved dark mode preference or default to light mode
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+      htmlElement.classList.add('dark-mode');
+      logoImages[0].classList.add('dark-hidden');
+      logoImages[1].classList.remove('dark-hidden');
+      if (toggleIcon) toggleIcon.src = 'asset/icons/dark icon.png';
+    } else {
+      logoImages[0].classList.remove('dark-hidden');
+      logoImages[1].classList.add('dark-hidden');
+      if (toggleIcon) toggleIcon.src = 'asset/icons/light icon.png';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      htmlElement.classList.toggle('dark-mode');
+      const isNowDark = htmlElement.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isNowDark);
+      
+      // Toggle logo visibility
+      if (isNowDark) {
+        logoImages[0].classList.add('dark-hidden');
+        logoImages[1].classList.remove('dark-hidden');
+        if (toggleIcon) toggleIcon.src = 'asset/icons/dark icon.png';
+      } else {
+        logoImages[0].classList.remove('dark-hidden');
+        logoImages[1].classList.add('dark-hidden');
+        if (toggleIcon) toggleIcon.src = 'asset/icons/light icon.png';
+      }
+    });
+  </script>
+
+    </div>
+</body>
+</html>
