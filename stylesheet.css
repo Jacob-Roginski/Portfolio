@@ -111,6 +111,14 @@ html, body {
   object-fit: contain;
 }
 
+.toggle-icon-light {
+  filter: brightness(0.3);
+}
+
+html.dark-mode .toggle-icon-light {
+  filter: brightness(1.5);
+}
+
 .dark-mode-toggle:hover {
   background-color: var(--bg-secondary);
   transform: scale(1.1);
