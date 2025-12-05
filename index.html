@@ -302,6 +302,19 @@
       });
     });
 
+    // Click on carousel to navigate (left/right)
+    carousel.addEventListener('click', (e) => {
+      const carouselRect = carousel.getBoundingClientRect();
+      const clickX = e.clientX - carouselRect.left;
+      const midpoint = carouselRect.width / 2;
+      
+      if (clickX < midpoint) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+    });
+
     // Dark Mode Toggle
     const darkModeToggle = document.getElementById('darkModeToggle');
     const htmlElement = document.documentElement;
