@@ -189,11 +189,11 @@
       htmlElement.classList.add('dark-mode');
       logoImages[0].classList.add('dark-hidden');
       logoImages[1].classList.remove('dark-hidden');
-      if (toggleIcon) toggleIcon.src = 'asset/icons/dark icon.png';
+      if (toggleIcon) toggleIcon.src = 'asset/icons/dark_icon.png';
     } else {
       logoImages[0].classList.remove('dark-hidden');
       logoImages[1].classList.add('dark-hidden');
-      if (toggleIcon) toggleIcon.src = 'asset/icons/light icon.png';
+      if (toggleIcon) toggleIcon.src = 'asset/icons/light_icon.png';
     }
 
     darkModeToggle.addEventListener('click', () => {
@@ -205,11 +205,11 @@
       if (isNowDark) {
         logoImages[0].classList.add('dark-hidden');
         logoImages[1].classList.remove('dark-hidden');
-        if (toggleIcon) toggleIcon.src = 'asset/icons/dark icon.png';
+        if (toggleIcon) toggleIcon.src = 'asset/icons/dark_icon.png';
       } else {
         logoImages[0].classList.remove('dark-hidden');
         logoImages[1].classList.add('dark-hidden');
-        if (toggleIcon) toggleIcon.src = 'asset/icons/light icon.png';
+        if (toggleIcon) toggleIcon.src = 'asset/icons/light_icon.png';
       }
     });
   </script>
