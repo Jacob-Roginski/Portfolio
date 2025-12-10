@@ -898,10 +898,12 @@ html.dark-mode .toggle-icon-light {
 
   .carousel-container {
     height: 400px;
+    overflow: hidden;
   }
 
   .carousel-item {
-    width: 260px;
+    width: calc(100vw - 80px);
+    max-width: 280px;
     height: 340px;
     padding: 16px 12px 12px 12px;
     gap: 8px;
@@ -914,8 +916,10 @@ html.dark-mode .toggle-icon-light {
   }
 
   .card-product-image {
-    width: 170px;
-    height: 136px;
+    width: calc(100% - 60px);
+    max-width: 170px;
+    height: auto;
+    aspect-ratio: 1.25 / 1;
     margin: 2px 0 0 0;
   }
 
@@ -997,10 +1001,12 @@ html.dark-mode .toggle-icon-light {
 
   .carousel-container {
     height: 360px;
+    overflow: hidden;
   }
 
   .carousel-item {
-    width: 220px;
+    width: calc(100vw - 60px);
+    max-width: 240px;
     height: 300px;
     padding: 12px 8px 10px 8px;
     gap: 6px;
@@ -1013,8 +1019,10 @@ html.dark-mode .toggle-icon-light {
   }
 
   .card-product-image {
-    width: 140px;
-    height: 112px;
+    width: calc(100% - 50px);
+    max-width: 140px;
+    height: auto;
+    aspect-ratio: 1.25 / 1;
     margin: 2px 0 0 0;
   }
 
