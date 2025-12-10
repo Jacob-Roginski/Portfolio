@@ -60,9 +60,9 @@
                 <p class="showcase-text">Finding affordable housing is a complex and often overwhelming process. The main challenges were:</p>
                 <ul class="showcase-list">
                     <li>Creating an accessible interface for users with varying digital literacy levels</li>
-                    <li>Simplifying complex housing information and application processes</li>
+                    <li>Simplifying complex housing information and digestible processes</li>
                     <li>Building trust and transparency in the housing search experience</li>
-                    <li>Ensuring mobile accessibility for users without regular computer access</li>
+                    <li>Ensuring navigation accessibility for intuitive design</li>
                 </ul>
             </section>
 
@@ -184,42 +184,6 @@
         </footer>
     </div>
 
-    <script>
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const htmlElement = document.documentElement;
-        const logoImages = document.querySelectorAll('.logo-image');
-        const toggleIcon = document.querySelector('.toggle-icon-light');
-
-        // Check for saved dark mode preference or default to light mode
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        if (isDarkMode) {
-            htmlElement.classList.add('dark-mode');
-            logoImages[0].classList.add('dark-hidden');
-            logoImages[1].classList.remove('dark-hidden');
-            if (toggleIcon) toggleIcon.src = 'asset/icons/dark_icon.png';
-        } else {
-            logoImages[0].classList.remove('dark-hidden');
-            logoImages[1].classList.add('dark-hidden');
-            if (toggleIcon) toggleIcon.src = 'asset/icons/light_icon.png';
-        }
-
-        darkModeToggle.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark-mode');
-            const isNowDark = htmlElement.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isNowDark);
-            
-            // Toggle logo visibility
-            if (isNowDark) {
-                logoImages[0].classList.add('dark-hidden');
-                logoImages[1].classList.remove('dark-hidden');
-                if (toggleIcon) toggleIcon.src = 'asset/icons/dark_icon.png';
-            } else {
-                logoImages[0].classList.remove('dark-hidden');
-                logoImages[1].classList.add('dark-hidden');
-                if (toggleIcon) toggleIcon.src = 'asset/icons/light_icon.png';
-            }
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
