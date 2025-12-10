@@ -321,7 +321,7 @@ html.dark-mode .toggle-icon-light {
   justify-content: center;
   border-radius: 24px;
   user-select: none;
-  cursor: grab;
+  cursor: default;
   padding: 40px 0;
   background-color: var(--bg-primary);
 }
@@ -1754,7 +1754,7 @@ html.dark-mode .resume-download:hover .doc-icon {
   border-radius: 16px;
   overflow: hidden;
   background-color: var(--bg-primary);
-  cursor: grab;
+  cursor: default;
   padding: 60px 0;
 }
 

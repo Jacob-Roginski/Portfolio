@@ -86,28 +86,22 @@ function initCarousel() {
   carousel.addEventListener('mousedown', (e) => {
     isDragging = true;
     dragStartX = e.clientX;
-    carousel.style.cursor = 'grabbing';
   });
 
   carousel.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
     const currentDrag = e.clientX - dragStartX;
-    if (Math.abs(currentDrag) > 5) {
-      carousel.style.cursor = 'grabbing';
-    }
   });
 
   carousel.addEventListener('mouseup', (e) => {
     if (!isDragging) return;
     isDragging = false;
     touchEndX = e.clientX;
-    carousel.style.cursor = 'grab';
   });
 
   carousel.addEventListener('mouseleave', () => {
     if (isDragging) {
       isDragging = false;
-      carousel.style.cursor = 'grab';
     }
   });
 
@@ -168,11 +162,11 @@ function initDesignCarousels() {
     }
 
     function nextSlide() {
-      goToSlide(currentSlide - 1);
+      goToSlide(currentSlide + 1);
     }
 
     function prevSlide() {
-      goToSlide(currentSlide + 1);
+      goToSlide(currentSlide - 1);
     }
 
     function handleSwipe() {
@@ -192,15 +186,11 @@ function initDesignCarousels() {
     wrapper.addEventListener('mousedown', (e) => {
       isDragging = true;
       dragStartX = e.clientX;
-      wrapper.style.cursor = 'grabbing';
     });
 
     wrapper.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
       const currentDrag = e.clientX - dragStartX;
-      if (Math.abs(currentDrag) > 5) {
-        wrapper.style.cursor = 'grabbing';
-      }
     });
 
     wrapper.addEventListener('mouseup', (e) => {
@@ -208,13 +198,11 @@ function initDesignCarousels() {
       isDragging = false;
       touchEndX = e.clientX;
       handleSwipe();
-      wrapper.style.cursor = 'grab';
     });
 
     wrapper.addEventListener('mouseleave', () => {
       if (isDragging) {
         isDragging = false;
-        wrapper.style.cursor = 'grab';
       }
     });
 
