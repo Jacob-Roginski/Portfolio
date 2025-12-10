@@ -490,6 +490,10 @@ html.dark-mode .toggle-icon-light {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin: 16px 0 0 0;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .card-product-price {
@@ -497,6 +501,11 @@ html.dark-mode .toggle-icon-light {
   font-weight: 700;
   color: white;
   margin: 8px 0 0 0;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.2;
 }
 
 .card-product-btn {
@@ -747,11 +756,13 @@ html.dark-mode .toggle-icon-light {
   }
 
   .card-product-name {
-    font-size: 15px;
+    font-size: 14px;
+    padding: 0 8px;
   }
 
   .card-product-price {
-    font-size: 24px;
+    font-size: 22px;
+    padding: 0 8px;
   }
 
   .card-product-btn {
@@ -824,11 +835,14 @@ html.dark-mode .toggle-icon-light {
   }
 
   .card-product-name {
-    font-size: 13px;
+    font-size: 12px;
+    padding: 0 6px;
   }
 
   .card-product-price {
-    font-size: 22px;
+    font-size: 18px;
+    padding: 0 6px;
+    line-height: 1.1;
   }
 
   .card-product-btn {
@@ -908,11 +922,15 @@ html.dark-mode .toggle-icon-light {
   }
 
   .card-product-name {
-    font-size: 12px;
+    font-size: 11px;
+    padding: 0 4px;
+    letter-spacing: 0.04em;
   }
 
   .card-product-price {
-    font-size: 20px;
+    font-size: 16px;
+    padding: 0 4px;
+    line-height: 1.1;
   }
 
   .card-product-btn {
