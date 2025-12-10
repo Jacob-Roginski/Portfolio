@@ -742,8 +742,8 @@ html.dark-mode .toggle-icon-light {
   }
 
   .card-product-image {
-    width: 160px;
-    height: 160px;
+    width: 220px;
+    height: 180px;
   }
 
   .card-product-name {
@@ -818,8 +818,8 @@ html.dark-mode .toggle-icon-light {
   }
 
   .card-product-image {
-    width: 140px;
-    height: 140px;
+    width: 200px;
+    height: 160px;
     margin: 4px 0 0 0;
   }
 
@@ -902,8 +902,8 @@ html.dark-mode .toggle-icon-light {
   }
 
   .card-product-image {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 145px;
     margin: 2px 0 0 0;
   }
 
