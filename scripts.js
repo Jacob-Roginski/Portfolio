@@ -222,6 +222,24 @@ function initDesignCarousels() {
         goToSlide(index);
       });
     });
+
+    // Click on carousel to navigate (left/right)
+    wrapper.addEventListener('click', (e) => {
+      // Don't navigate if clicking on control dots
+      if (e.target.classList.contains('design-control-dot')) {
+        return;
+      }
+      
+      const carouselRect = wrapper.getBoundingClientRect();
+      const clickX = e.clientX - carouselRect.left;
+      const midpoint = carouselRect.width / 2;
+      
+      if (clickX < midpoint) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+    });
   });
 }
 
