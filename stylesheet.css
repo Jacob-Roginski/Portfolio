@@ -897,25 +897,25 @@ html.dark-mode .toggle-icon-light {
   }
 
   .carousel-container {
-    height: 420px;
+    height: 400px;
   }
 
   .carousel-item {
-    width: 280px;
-    height: 360px;
-    padding: 18px 12px 14px 12px;
-    gap: 10px;
+    width: 260px;
+    height: 340px;
+    padding: 16px 12px 12px 12px;
+    gap: 8px;
   }
 
   .card-logo {
-    width: 70px;
-    height: 70px;
-    margin-top: 28px;
+    width: 65px;
+    height: 65px;
+    margin-top: 24px;
   }
 
   .card-product-image {
-    width: 180px;
-    height: 145px;
+    width: 170px;
+    height: 136px;
     margin: 2px 0 0 0;
   }
 
@@ -996,25 +996,25 @@ html.dark-mode .toggle-icon-light {
   }
 
   .carousel-container {
-    height: 380px;
+    height: 360px;
   }
 
   .carousel-item {
-    width: 240px;
-    height: 320px;
-    padding: 14px 10px 12px 10px;
-    gap: 8px;
+    width: 220px;
+    height: 300px;
+    padding: 12px 8px 10px 8px;
+    gap: 6px;
   }
 
   .card-logo {
-    width: 60px;
-    height: 60px;
-    margin-top: 24px;
+    width: 55px;
+    height: 55px;
+    margin-top: 20px;
   }
 
   .card-product-image {
-    width: 150px;
-    height: 120px;
+    width: 140px;
+    height: 112px;
     margin: 2px 0 0 0;
   }
 
