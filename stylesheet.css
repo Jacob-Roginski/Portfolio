@@ -757,12 +757,10 @@ html.dark-mode .toggle-icon-light {
 
   .card-product-name {
     font-size: 15px;
-    padding: 0 8px;
   }
 
   .card-product-price {
     font-size: 24px;
-    padding: 0 8px;
   }
 
   .card-product-btn {
@@ -922,13 +920,13 @@ html.dark-mode .toggle-icon-light {
   }
 
   .card-product-name {
-    font-size: 11px;
+    font-size: 12px;
     padding: 0 4px;
     letter-spacing: 0.04em;
   }
 
   .card-product-price {
-    font-size: 16px;
+    font-size: 20px;
     padding: 0 4px;
     line-height: 1.1;
   }
