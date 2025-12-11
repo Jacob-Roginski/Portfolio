@@ -2102,7 +2102,7 @@ html.dark-mode .resume-download:hover .doc-icon {
 
   .design-carousels-container {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
   }
 }
 
