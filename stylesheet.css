@@ -185,7 +185,7 @@ html.dark-mode .toggle-icon-light {
   color: var(--accent-blue);
 }
 
-/* Mobile-only line break helper for long titles */
+/* Mobile-only line break helper */
 br.mobile-break {
   display: none;
 }
@@ -805,11 +805,6 @@ br.mobile-break {
 
   .main-project {
     margin-bottom: 80px;
-    /* Disable full-bleed at tablet/mobile to avoid overflow */
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 24px;
-    padding-right: 24px;
   }
 
   .project-grid {
@@ -972,17 +967,9 @@ br.mobile-break {
     font-size: 22px;
   }
 
-  /* Show mobile-only line breaks in long carousel titles */
+  /* Show mobile line breaks */
   br.mobile-break {
     display: inline;
-  }
-
-  /* Remove full-bleed on mobile to prevent overflow */
-  .main-project {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 16px;
-    padding-right: 16px;
   }
 }
 
@@ -1027,9 +1014,6 @@ br.mobile-break {
   .carousel-container {
     height: 480px;
     overflow: hidden; /* Ensure translated neighbor slides don't create horizontal scroll */
-  }
-
-  .carousel-item {
     padding: 12px 8px 10px 8px;
     gap: 6px;
   }
