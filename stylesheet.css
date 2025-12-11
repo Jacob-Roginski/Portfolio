@@ -185,6 +185,11 @@ html.dark-mode .toggle-icon-light {
   color: var(--accent-blue);
 }
 
+/* Mobile-only line break helper for long titles */
+br.mobile-break {
+  display: none;
+}
+
 /* Main Project Section */
 .main-project {
   margin-bottom: 120px;
@@ -965,6 +970,11 @@ html.dark-mode .toggle-icon-light {
 
   .contact-email {
     font-size: 22px;
+  }
+
+  /* Show mobile-only line breaks in long carousel titles */
+  br.mobile-break {
+    display: inline;
   }
 
   /* Remove full-bleed on mobile to prevent overflow */
