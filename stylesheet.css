@@ -938,7 +938,7 @@ br.mobile-break {
   }
 
   .card-product-price {
-    font-size: 18px;
+    font-size: 20px;
     padding: 0 4px;
     padding-bottom: 2%;
     line-height: 1.1;
@@ -1028,6 +1028,8 @@ br.mobile-break {
     height: 480px;
     overflow: hidden; /* Ensure translated neighbor slides don't create horizontal scroll */
   }
+
+  .carousel-item {
     padding: 12px 8px 10px 8px;
     gap: 6px;
   }
