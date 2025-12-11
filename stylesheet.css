@@ -332,6 +332,36 @@ br.mobile-break {
   background-color: var(--bg-primary);
 }
 
+.carousel-nav-hint {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 48px;
+  color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+  z-index: 5;
+  animation: pulseNavHint 2s ease-in-out infinite;
+}
+
+.carousel-nav-hint.left {
+  left: 60px;
+}
+
+.carousel-nav-hint.right {
+  right: 60px;
+}
+
+@keyframes pulseNavHint {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-50%) scale(1.05);
+  }
+}
+
 .carousel-slide {
   position: absolute;
   width: 100%;
@@ -866,6 +896,10 @@ br.mobile-break {
 
   .contact-email {
     font-size: 28px;
+  }
+
+  .carousel-nav-hint {
+    display: none;
   }
 }
 
