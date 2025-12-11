@@ -144,10 +144,6 @@ function initDesignCarousels() {
     
     let currentSlide = 0;
     let isTransitioning = false;
-    let touchStartX = 0;
-    let touchEndX = 0;
-    let isDragging = false;
-    let dragStartX = 0;
 
     function goToSlide(index) {
       if (isTransitioning) return;
@@ -162,59 +158,12 @@ function initDesignCarousels() {
     }
 
     function nextSlide() {
-      goToSlide(currentSlide + 1)
+      goToSlide(currentSlide + 1);
     }
 
     function prevSlide() {
       goToSlide(currentSlide - 1);
     }
-
-    function handleSwipe() {
-      const swipeThreshold = 50;
-      const diff = touchStartX - touchEndX;
-
-      if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0) {
-          nextSlide();
-        } else {
-          prevSlide();
-        }
-      }
-    }
-
-    // Mouse drag navigation
-    wrapper.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      dragStartX = e.clientX;
-    });
-
-    wrapper.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const currentDrag = e.clientX - dragStartX;
-    });
-
-    wrapper.addEventListener('mouseup', (e) => {
-      if (!isDragging) return;
-      isDragging = false;
-      touchEndX = e.clientX;
-      handleSwipe();
-    });
-
-    wrapper.addEventListener('mouseleave', () => {
-      if (isDragging) {
-        isDragging = false;
-      }
-    });
-
-    // Touch navigation
-    wrapper.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].clientX;
-    });
-
-    wrapper.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].clientX;
-      handleSwipe();
-    });
 
     // Control dots
     controlDots.forEach((dot, index) => {
