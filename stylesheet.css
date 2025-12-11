@@ -1005,6 +1005,12 @@ br.mobile-break {
   br.mobile-break {
     display: inline;
   }
+
+  /* Reduce button padding on mobile */
+  .btn-back-home,
+  .btn-contact {
+    padding: 10px 24px;
+  }
 }
 
 /* Extra small mobile devices (360px and below) */
@@ -1737,6 +1743,19 @@ html.dark-mode .resume-download:hover .doc-icon {
 }
 
 /* Project Showcase Page */
+.back-link {
+  display: inline-block;
+  margin: 32px 0 48px 0;
+  font-size: 16px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--text-primary);
+}
+
 .project-showcase {
   margin: 80px 0 120px 0;
 }
