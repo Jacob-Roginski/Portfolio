@@ -208,10 +208,27 @@ function initMobileNav() {
   });
 }
 
+// Back button navigation with scroll reset
+function goBackWithScroll() {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.history.back();
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 0);
+}
+
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   initDarkMode();
   initCarousel();
   initDesignCarousels();
   initMobileNav();
+  
+  // Ensure page loads at top
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
 });
