@@ -162,7 +162,7 @@ function initDesignCarousels() {
     }
 
     function nextSlide() {
-      goToSlide(currentSlide + );
+      goToSlide(currentSlide + 1)
     }
 
     function prevSlide() {
