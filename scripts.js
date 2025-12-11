@@ -192,9 +192,26 @@ function initDesignCarousels() {
   });
 }
 
+// Mobile Navigation - Close on outside click
+function initMobileNav() {
+  const hamburgerToggle = document.getElementById('hamburger-toggle');
+  const hamburgerMenu = document.querySelector('.hamburger-menu');
+  
+  if (!hamburgerToggle || !hamburgerMenu) return;
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    // Check if menu is open and click is outside the hamburger menu
+    if (hamburgerToggle.checked && !hamburgerMenu.contains(e.target)) {
+      hamburgerToggle.checked = false;
+    }
+  });
+}
+
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   initDarkMode();
   initCarousel();
   initDesignCarousels();
+  initMobileNav();
 });
