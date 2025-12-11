@@ -903,13 +903,13 @@ br.mobile-break {
   }
 
   .carousel-container {
-    height: 420px;
+    height: 460px;
     overflow: hidden; /* Prevent horizontal overflow on small screens */
   }
 
   .carousel-item {
     width: 280px;
-    height: 360px;
+    height: 400px;
     padding: 18px 12px 14px 12px;
     gap: 10px;
   }
@@ -1008,12 +1008,13 @@ br.mobile-break {
   }
 
   .carousel-container {
-    height: 360px;
+    height: 400px;
+    overflow: hidden; /* Ensure translated neighbor slides don't create horizontal scroll */
   }
 
-  .carousel-container {
-    height: 480px;
-    overflow: hidden; /* Ensure translated neighbor slides don't create horizontal scroll */
+  .carousel-item {
+    width: 220px;
+    height: 340px;
     padding: 12px 8px 10px 8px;
     gap: 6px;
   }
