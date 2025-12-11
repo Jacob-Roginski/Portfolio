@@ -2104,6 +2104,11 @@ html.dark-mode .resume-download:hover .doc-icon {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
+  .design-carousel-controls {
+    margin-top: 16px;
+    padding-bottom: 12px;
+  }
 }
 
 @media (max-width: 768px) {
