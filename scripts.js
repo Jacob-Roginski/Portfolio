@@ -162,11 +162,11 @@ function initDesignCarousels() {
     }
 
     function nextSlide() {
-      goToSlide(currentSlide - 1);
+      goToSlide(currentSlide + );
     }
 
     function prevSlide() {
-      goToSlide(currentSlide + 1);
+      goToSlide(currentSlide - 1);
     }
 
     function handleSwipe() {
