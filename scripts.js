@@ -77,33 +77,33 @@ function initCarousel() {
     }
   });
 
-  // Swipe/Drag Navigation
+  // Touch/Swipe Navigation for mobile
   let touchStartX = 0;
   let touchEndX = 0;
-  let isDragging = false;
-  let dragStartX = 0;
 
-  carousel.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    dragStartX = e.clientX;
-  });
+  carousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
 
-  carousel.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    const currentDrag = e.clientX - dragStartX;
-  });
+  carousel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
 
-  carousel.addEventListener('mouseup', (e) => {
-    if (!isDragging) return;
-    isDragging = false;
-    touchEndX = e.clientX;
-  });
-
-  carousel.addEventListener('mouseleave', () => {
-    if (isDragging) {
-      isDragging = false;
+  function handleSwipe() {
+    const swipeThreshold = 50; // Minimum distance for a swipe
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swiped left - go to next slide
+        nextSlide();
+      } else {
+        // Swiped right - go to previous slide
+        prevSlide();
+      }
     }
-  });
+  }
 
   // Click on control dots
   const controlDots = document.querySelectorAll('.control-dot');
@@ -189,6 +189,34 @@ function initDesignCarousels() {
         nextSlide();
       }
     });
+
+    // Touch/Swipe Navigation for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    wrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeThreshold = 50; // Minimum distance for a swipe
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swiped left - go to next slide
+          nextSlide();
+        } else {
+          // Swiped right - go to previous slide
+          prevSlide();
+        }
+      }
+    }
   });
 }
 
@@ -210,13 +238,13 @@ function initMobileNav() {
 
 // Back button navigation with scroll reset
 function goBackWithScroll() {
+  // Store a flag to scroll to top on the next page
+  sessionStorage.setItem('scrollToTop', 'true');
+  
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
   window.history.back();
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-  }, 0);
 }
 
 // Initialize all functionality when DOM is loaded
@@ -230,5 +258,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
-  window.scrollTo(0, 0);
+  
+  // Check if we should scroll to top (from back button)
+  if (sessionStorage.getItem('scrollToTop') === 'true') {
+    sessionStorage.removeItem('scrollToTop');
+    window.scrollTo(0, 0);
+  } else {
+    window.scrollTo(0, 0);
+  }
 });
