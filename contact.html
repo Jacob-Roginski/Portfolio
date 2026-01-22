@@ -142,6 +142,7 @@
             } catch (error) {
                 console.error('Error fetching weather:', error);
                 document.getElementById('temperature').textContent = '--°F';
+                document.querySelector('.weather-date').textContent = 'Date unavailable';
             }
         }
 
@@ -186,5 +187,6 @@
     </script>
 </body>
 </html>
+
 
 
