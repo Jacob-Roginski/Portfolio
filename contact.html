@@ -91,7 +91,7 @@
                 <div class="weather-widget">
                     <div class="weather-content">
                         <img src="asset/Detroit_image.png" alt="Detroit" class="weather-image">
-                        <div class="weather-description">Dec 4, 2025</div>
+                        <div class="weather-description" id='weather-date'>Loading date...</div>
                         <div class="weather-temp" id="temperature">--°F</div>
                     </div>
                 </div>
@@ -128,6 +128,17 @@
                 const data = await response.json();
                 const temp = Math.round(data.current.temperature_2m);
                 document.getElementById('temperature').textContent = temp + '°F';
+
+                const DTWtime = new Date().toLocaleString('en-US', {
+                    timeZone: 'America/Detroit",
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                });
+
+                const weatherDescription = document.querySelector('.weather-date');
+                weatherDescription.textContent = DTWtime;
+            
             } catch (error) {
                 console.error('Error fetching weather:', error);
                 document.getElementById('temperature').textContent = '--°F';
@@ -175,3 +186,4 @@
     </script>
 </body>
 </html>
+
