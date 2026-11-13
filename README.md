@@ -3,7 +3,7 @@
 A clean, lightweight personal portfolio site showcasing projects, experience, and contact information. Built with simple, maintainable HTML/CSS/JS so it’s easy to update and host anywhere.
 
 ## Overview
-- **Pages:** `index.html` (home), `about.html`, `resume.html`, `contact.html`, project pages like `msu.html`, `msu-esk8.html`, `waggoner.html`, `arum.html`, `cahp.html`
+- **Pages:** `index.html` (home), `about.html`, `resume.html`, `contact.html`, project pages like `campus-life.html`, `msu.html`, `msu-esk8.html`, `waggoner.html`, `arum.html`, `cahp.html`
 - **Assets:** icons and images stored under `asset/` with subfolders `Computer_images/` and `Cobra_computer_images/`
 - **Styling & Scripts:** global styles in `stylesheet.css`, interactions in `scripts.js`
 

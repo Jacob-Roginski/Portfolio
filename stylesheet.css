@@ -10,6 +10,7 @@
   --accent-blue: #4a90e2;
   --accent-blue-dark: #3876ba;
   --button-bg: #252525;
+  --accent-button-text: #ffffff;
   --input-border: #999999;
   --accent-hover: rgba(19, 19, 19, 0.1);
 }
@@ -18,13 +19,14 @@ html.dark-mode {
   --bg-primary: #131313;
   --bg-secondary: #1f1f1f;
   --text-primary: #f9f9f9;
-  --text-secondary: #b0b0b0;
+  --text-secondary: #c6c6c6;
   --text-tertiary: #d0d0d0;
   --border-color: #333333;
   --card-shadow: rgba(0, 0, 0, 0.6);
   --accent-blue: #6ba3f5;
   --accent-blue-dark: #5a92e3;
   --button-bg: #f9f9f9;
+  --accent-button-text: #101820;
   --input-border: #555555;
   --accent-hover: rgba(249, 249, 249, 0.1);
 }
@@ -713,7 +715,7 @@ br.mobile-break {
 .btn-contact {
   display: inline-block;
   background-color: var(--accent-blue);
-  color: #ffffff;
+  color: var(--accent-button-text);
   padding: 14px 28px;
   border-radius: 20px;
   text-decoration: none;
@@ -1331,7 +1333,7 @@ br.mobile-break {
   align-self: flex-start;
   padding: 12px 28px;
   background-color: var(--accent-blue);
-  color: #ffffff;
+  color: var(--accent-button-text);
   border: none;
   border-radius: 20px;
   font-size: 14px;
@@ -2062,7 +2064,7 @@ html.dark-mode .resume-download:hover .doc-icon {
 
 .skill-tag {
   background-color: var(--accent-blue);
-  color: white;
+  color: var(--accent-button-text);
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 14px;
@@ -2101,7 +2103,7 @@ html.dark-mode .resume-download:hover .doc-icon {
 
 .btn-visit-project {
   background-color: var(--accent-blue);
-  color: white;
+  color: var(--accent-button-text);
 }
 
 .btn-visit-project:hover {
@@ -2119,6 +2121,196 @@ html.dark-mode .resume-download:hover .doc-icon {
 .btn-back-home:hover {
   background-color: var(--text-primary);
   color: var(--bg-primary);
+}
+
+/* Campus Life case study */
+.campus-case-study {
+  --campus-green: #1d5b45;
+  --campus-light: #e8f1e7;
+  margin-bottom: 120px;
+}
+
+html.dark-mode .campus-case-study {
+  --campus-green: #b7e3c1;
+  --campus-light: #20382c;
+}
+
+.campus-hero {
+  background: var(--campus-light);
+  border-radius: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 48px;
+  align-items: center;
+  min-height: 580px;
+  padding: 72px;
+  overflow: hidden;
+}
+
+.campus-hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.campus-eyebrow {
+  color: var(--campus-green);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 18px;
+  text-transform: uppercase;
+}
+
+.campus-hero h1 {
+  color: var(--campus-green);
+  font-size: clamp(52px, 7vw, 92px);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  margin: 0 0 28px;
+}
+
+.campus-hero-lede {
+  color: var(--text-primary);
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 0 0 18px;
+  max-width: 360px;
+}
+
+.campus-hero-copy > .showcase-text {
+  max-width: 420px;
+}
+
+.campus-hero-meta {
+  border-top: 1px solid rgba(29, 91, 69, 0.25);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 36px;
+  padding-top: 20px;
+}
+
+.campus-hero-meta span {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.campus-hero-meta strong {
+  color: var(--text-primary);
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.campus-hero-art {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.campus-hero-art img {
+  display: block;
+  filter: drop-shadow(0 24px 24px rgba(20, 54, 42, 0.2));
+  max-width: 780px;
+  transform: rotate(-2deg) scale(1.12);
+  width: 125%;
+}
+
+.campus-video-section {
+  margin: 140px 0;
+}
+
+.campus-section-heading {
+  margin-bottom: 32px;
+  max-width: 780px;
+}
+
+.campus-section-heading h2,
+.campus-reflection h2 {
+  color: var(--text-primary);
+  font-size: clamp(32px, 5vw, 56px);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.campus-video {
+  background: #101512;
+  border-radius: 20px;
+  display: block;
+  max-height: 720px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.campus-content-section {
+  margin-bottom: 140px;
+}
+
+.campus-narrow-text {
+  max-width: 680px;
+}
+
+.campus-feature-grid {
+  margin-top: 48px;
+}
+
+.campus-feature-number {
+  color: var(--campus-green);
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+
+.campus-design-grid {
+  align-items: center;
+  display: grid;
+  gap: 64px;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+}
+
+.campus-board-frame {
+  background: #1d1d1d;
+  border-radius: 18px;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.campus-board-frame img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.campus-reflection {
+  background: var(--campus-light);
+  border-radius: 24px;
+  padding: 64px;
+}
+
+.campus-cta {
+  border-top-color: var(--border-color);
+}
+
+.campus-life-card {
+  background: linear-gradient(135deg, #2e765a 0%, #153e30 100%);
+  color: #fff;
+}
+
+.campus-life-card .small-card-product-name,
+.campus-life-card .small-card-product-price {
+  color: #fff;
+}
+
+.small-card-mark {
+  color: #d7edcf;
+  font-size: 32px;
+  line-height: 1;
 }
 
 @media (max-width: 768px) {
